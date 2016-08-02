@@ -63,7 +63,16 @@ public class ChannelManager {
 			return channels.get(name);
 		return null;
 	}
-
+	
+	public Channel getChannelByNameArray(List<String> name) {
+		name.replaceAll(str -> str.toLowerCase());
+		for(String str : name){
+			if(existsChannel(str))
+				return channels.get(str);
+		}
+		return null;
+	}
+	
 	public Channel getChannelByNickname(String nickname) {
 		for(Channel c : getChannels())
 			if(c.getNickname().equalsIgnoreCase(nickname))
@@ -80,6 +89,17 @@ public class ChannelManager {
 
 	public boolean existsChannel(String name) {
 		return channels.containsKey(name.toLowerCase());
+	}
+	
+	public boolean existsChannelArray(List<String> name) {
+		name.replaceAll(str -> str.toLowerCase());
+		boolean eCA = false;
+		for(String str : name){
+			if(channels.containsKey(str)){
+				eCA = true;
+			}
+		}
+		return eCA;
 	}
 
 	public boolean existsChannelAdvanced(String name_or_nickname) {

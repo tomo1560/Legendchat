@@ -216,7 +216,7 @@ public class Legendchat {
 		blockShortcutsWhenCancelled=fc.getBoolean("block_shortcuts_when_cancelled",true);
 		maintainSpyMode=fc.getBoolean("maintain_spy_mode",false);
 		isBungeecordActive=Main.bungeeActive;
-		bungeecordChannel=(BungeecordChannel) getChannelManager().getChannelByName(fc.getString("bungeecord.channel","bungeecord"));
+		bungeecordChannel=(BungeecordChannel) getChannelManager().getChannelByNameArray(fc.getStringList("bungeecord.channel"));
 		isCensorActive=fc.getBoolean("censor.use",true);
 		Legendchat.getCensorManager().loadCensoredWords(fc.getStringList("censor.censored_words"));
 		logToFile=fc.getBoolean("log_to_file.use",false);

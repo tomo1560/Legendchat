@@ -6,10 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.permission.Permission;
-
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +20,9 @@ import br.com.devpaulo.legendchat.commands.Commands;
 import br.com.devpaulo.legendchat.listeners.Listeners;
 import br.com.devpaulo.legendchat.listeners.Listeners_old;
 import br.com.devpaulo.legendchat.updater.Updater;
+import net.milkbowl.vault.chat.Chat;
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 	public static Permission perms = null;
@@ -149,7 +148,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 		}
 		
 		if(getConfig().getBoolean("bungeecord.use",false))
-			if(Legendchat.getChannelManager().existsChannel(getConfig().getString("bungeecord.channel","bungeecord")))
+			if(Legendchat.getChannelManager().existsChannelArray(getConfig().getStringList("bungeecord.channel")))
 				bungeeActive=true;
 		
 		Legendchat.load(true);

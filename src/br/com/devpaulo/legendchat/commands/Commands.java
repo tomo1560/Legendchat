@@ -865,7 +865,7 @@ public class Commands implements CommandExecutor {
 					new Updater().updateAndLoadLanguage(lc.getConfig().getString("language"));
 					Main.bungeeActive=false;
 					if(lc.getConfig().getBoolean("bungeecord.use"))
-						if(Legendchat.getChannelManager().existsChannel(lc.getConfig().getString("bungeecord.channel")))
+						if(Legendchat.getChannelManager().existsChannelArray(lc.getConfig().getStringList("bungeecord.channel")))
 							Main.bungeeActive=true;
 					PlayerJoinEvent.getHandlerList().unregister(lc);
 					PlayerQuitEvent.getHandlerList().unregister(lc);
